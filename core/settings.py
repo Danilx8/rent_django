@@ -37,6 +37,7 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 	'app.apps.AppConfig',
 	'simple_history',
+	'import_export',
 
 	'rest_framework',  # Подключение drf к проекту
 ]
@@ -116,6 +117,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = \
+	r'C:\Users\Апгрейд\Documents\Programming\Мосполитех\Клиентская веб-разработка\2 курс\bike_car_rent\app\static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

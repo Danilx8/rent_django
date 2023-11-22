@@ -1,15 +1,40 @@
 import simple_history
 from django.contrib import admin
 from django.contrib.auth.models import User
+from import_export.admin import ExportActionModelAdmin
 
-from .models import *
+from .resources import *
 
 
-admin.site.register(Bike)
-admin.site.register(BikeType)
-admin.site.register(Car)
-admin.site.register(CarType)
-admin.site.register(Brand)
-admin.site.register(Segment)
+class BikeAdmin(ExportActionModelAdmin):
+    resource_class = BikeResource
+
+
+class BikeTypeAdmin(ExportActionModelAdmin):
+    resource_class = BikeTypeResource
+
+
+class CarAdmin(ExportActionModelAdmin):
+    resource_class = CarResource
+
+
+class CarTypeAdmin(ExportActionModelAdmin):
+    resource_class = CarTypeResource
+
+
+class BrandAdmin(ExportActionModelAdmin):
+    resource_class = BrandResource
+
+
+class SegmentAdmin(ExportActionModelAdmin):
+    resource_class = SegmentResource
+
+
+admin.site.register(Bike, BikeAdmin)
+admin.site.register(BikeType, BikeTypeAdmin)
+admin.site.register(Car, CarAdmin)
+admin.site.register(CarType, CarTypeAdmin)
+admin.site.register(Brand, BrandAdmin)
+admin.site.register(Segment, SegmentAdmin)
 
 simple_history.register(User)
