@@ -10,6 +10,6 @@ router.register(r'cars', CarViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     re_path(r'cars/(?P<passed_category>[A-E])', CarsByCategoryApiView.as_view()),
-    re_path(r'bikes/(?P<passed_type>\w)', BikesByType.as_view()),
+    # re_path(r'bikes/(?P<passed_type>\d)', BikesByType.as_view()),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
