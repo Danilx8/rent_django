@@ -20,6 +20,8 @@ class CarViewSet(viewsets.ModelViewSet):
 
 
 class BikesByType(generics.ListAPIView):
+    serializer_class = BikeSerializer
+
     def get(self, request, *args, **kwargs):
         queryset = Bike.objects.filter(
             type_id=kwargs.get("passed_type")
@@ -30,6 +32,8 @@ class BikesByType(generics.ListAPIView):
 
     
 class CarsByCategoryApiView(generics.ListAPIView):
+    serializer_class = CarSerializer
+
     def get(self, request, *args, **kwargs):
         queryset = Car.objects.filter(
             Q(required_category=kwargs.get("passed_category"))

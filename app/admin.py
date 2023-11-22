@@ -7,6 +7,7 @@ from .resources import *
 
 
 class BikeAdmin(ExportActionModelAdmin):
+    readonly_fields = ('id',)
     resource_class = BikeResource
 
 
@@ -15,6 +16,7 @@ class BikeTypeAdmin(ExportActionModelAdmin):
 
 
 class CarAdmin(ExportActionModelAdmin):
+    readonly_fields = ('id',)
     resource_class = CarResource
 
 

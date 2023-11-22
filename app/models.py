@@ -15,6 +15,7 @@ class Bike(models.Model):
     )
     frame_size_inches = models.FloatField()
     cost_per_hour = models.PositiveIntegerField()
+    is_available = models.BooleanField(default=False)
 
     history = HistoricalRecords
 
@@ -84,6 +85,7 @@ class Car(models.Model):
         models.DO_NOTHING
     )
     cost_per_hour = models.PositiveIntegerField()
+    is_available = models.BooleanField(default=False)
 
     history = HistoricalRecords
 

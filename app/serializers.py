@@ -7,12 +7,14 @@ class BikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bike
         fields = [
+            "id",
             "name",
             "color",
             "brand",
             "type",
             "frame_size_inches",
-            "cost_per_hour"
+            "cost_per_hour",
+            "is_available"
         ]
 
 
@@ -20,6 +22,7 @@ class CarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
         fields = [
+            "id",
             "name",
             "mileage_km",
             "years_in_use",
@@ -29,7 +32,8 @@ class CarSerializer(serializers.ModelSerializer):
             "trunk_capacity_liters",
             "seats_amount",
             "type",
-            "cost_per_hour"
+            "cost_per_hour",
+            "is_available"
         ]
 
 
