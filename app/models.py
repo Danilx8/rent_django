@@ -1,4 +1,5 @@
 from django.db import models
+from simple_history.models import HistoricalRecords
 
 
 class Bike(models.Model):
@@ -14,6 +15,8 @@ class Bike(models.Model):
     )
     frame_size_inches = models.FloatField()
     cost_per_hour = models.PositiveIntegerField()
+
+    history = HistoricalRecords
 
     def __str__(self):
         return self.name
@@ -43,6 +46,8 @@ class BikeType(models.Model):
         'Segment',
         models.DO_NOTHING
     )
+
+    history = HistoricalRecords
 
     def __str__(self):
         return self.name
@@ -80,6 +85,8 @@ class Car(models.Model):
     )
     cost_per_hour = models.PositiveIntegerField()
 
+    history = HistoricalRecords
+
     def __str__(self):
         return self.name
 
@@ -107,6 +114,8 @@ class CarType(models.Model):
         models.DO_NOTHING
     )
 
+    history = HistoricalRecords
+
     def __str__(self):
         return self.name
 
@@ -118,6 +127,8 @@ class CarType(models.Model):
 class Brand(models.Model):
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
+
+    history = HistoricalRecords
 
     def __str__(self):
         return self.name
@@ -134,6 +145,8 @@ class Segment(models.Model):
 
     name = models.CharField(max_length=50)
     user_type = models.TextField(choices=UserTypeChoice.choices)
+
+    history = HistoricalRecords
 
     def __str__(self):
         return self.name

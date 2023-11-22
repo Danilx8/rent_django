@@ -28,7 +28,7 @@ class BikesByType(generics.ListAPIView):
 
         return JsonResponse(serializer_class.data, safe=False)
 
-
+    
 class CarsByCategoryApiView(generics.ListAPIView):
     def get(self, request, *args, **kwargs):
         queryset = Car.objects.filter(
