@@ -8,7 +8,7 @@ from .resources import *
 
 class BikeAdmin(ExportActionModelAdmin):
     readonly_fields = ('id',)
-    list_display = ('name', 'show_type', 'show_segment')
+    list_display = ('name', 'show_brand', 'show_type', 'show_segment', 'is_available')
     resource_class = BikeResource
 
     def show_type(self, obj):
@@ -20,6 +20,10 @@ class BikeAdmin(ExportActionModelAdmin):
         segment = Segment.objects.get(pk=type.segment.id)
         return segment
 
+    def show_brand(self, obj):
+        brand = Brand.objects.get(pk=obj.brand.id)
+        return brand
+
 
 class BikeTypeAdmin(ExportActionModelAdmin):
     resource_class = BikeTypeResource
@@ -27,7 +31,7 @@ class BikeTypeAdmin(ExportActionModelAdmin):
 
 class CarAdmin(ExportActionModelAdmin):
     readonly_fields = ('id',)
-    list_display = ('name', 'show_brand', 'show_type', 'show_segment')
+    list_display = ('name', 'show_brand', 'show_type', 'show_segment', 'is_available')
     resource_class = CarResource
 
     def show_type(self, obj):
@@ -40,7 +44,7 @@ class CarAdmin(ExportActionModelAdmin):
         return segment
 
     def show_brand(self, obj):
-        brand = Brand.objects.get(pk=obj.id)
+        brand = Brand.objects.get(pk=obj.brand.id)
         return brand
 
 

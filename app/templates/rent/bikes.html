@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Велосипеды</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Название</td>
+            <td>Бренд</td>
+            <td>Стоимость в час</td>
+            <td></td>
+        </tr>
+        {% for bike in bikes %}
+        <tr>
+            <td>{{ bike.name }}</td>
+            <td>{{ bike.brand }}</td>
+            <td>{{ bike.cost_per_hour }}</td>
+            <td>
+                <form action="http://localhost:8000/bikes/rent_bike/" method="post">
+                    {% csrf_token %}
+                    <input name="id" value={{ bike.id }} hidden/>
+                    <button type="submit">Арендовать</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

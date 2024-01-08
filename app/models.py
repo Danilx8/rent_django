@@ -71,7 +71,7 @@ class Car(models.Model):
     years_in_use = models.PositiveIntegerField()
     required_category = models.CharField(choices=DriversCategoriesChoice.choices,
                                          max_length=2)
-    Brand = models.ForeignKey(
+    brand = models.ForeignKey(
         'Brand',
         models.DO_NOTHING,
         null=True
